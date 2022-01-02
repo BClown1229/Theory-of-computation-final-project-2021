@@ -29,3 +29,17 @@
 <img src = "./img/movie_intheaters.jpg" width = "200">
 <img src = "./img/movie_leaderboard.jpg" width = "200">
 <img src = "./img/movie_comingsoon.jpg" width = "200">
+
+## 注意事項
+* 安裝額外插件至Heroku
+  1. 把插件及版本加入至 requirement.txt 
+  2. 把插件及版本加入至 Pipefile
+  3. 執行pipenv去更新 Pipefile.lock
+  4. push至Heroku上
+* [安裝pygraph至Ubuntu上](https://www.jianshu.com/p/a3da7ecc5303)
+
+## Reference
+* [TOC-Project-2020](https://github.com/NCKU-CCS/TOC-Project-2020)
+* [LineBot](https://github.com/BClown1229/LineBot)
+* [Line richmenu](https://manager.line.biz/account/@973tlgjy/richmenu)
+* [Pygraphviz on Heroku](https://hackmd.io/@ccw/B1Xw7E8kN?type=view#Q2-%E5%A6%82%E4%BD%95%E5%9C%A8-Heroku-%E4%BD%BF%E7%94%A8-pygraphviz)
