@@ -20,7 +20,7 @@
 * Beautifulsoup4 4.10.0
 
 ## FSM (有限狀態機)
-<img src = "./fsm.png" width = "200">
+<img src = "./fsm.png">
 
 ## Demo
 <img src = "./img/main_menu.jpg" width = "200">
