@@ -37,7 +37,7 @@
   2. 把插件及版本加入至 Pipefile
   3. 執行pipenv去更新 Pipefile.lock
   4. push至Heroku上
-* [安裝pygraph至Ubuntu上](https://www.jianshu.com/p/a3da7ecc5303)
+* [安裝pygraphviz至Ubuntu上](https://www.jianshu.com/p/a3da7ecc5303)
 
 ## Reference
 * [TOC-Project-2020](https://github.com/NCKU-CCS/TOC-Project-2020)
