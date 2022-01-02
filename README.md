@@ -13,11 +13,12 @@
 * Linebot API
 * beautifulsoup4 -> 爬蟲
 * Heroku -> deploy
-* 多人使用
+* Rich menu
+* Multiple users
 
 ## 使用環境
-* Python 3.6.9
-* Beautifulsoup4 4.10.0
+* Python==3.6.9
+* Beautifulsoup4==4.10.0
 
 ## FSM (有限狀態機)
 <img src = "./fsm.png">
