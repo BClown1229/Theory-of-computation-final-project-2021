@@ -19,7 +19,10 @@
 * Python 3.6.9
 * Beautifulsoup4 4.10.0
 
-## 畫面演示
+## FSM (有限狀態機)
+<img src = "./fsm.png" width = "200">
+
+## Demo
 <img src = "./img/main_menu.jpg" width = "200">
 <img src = "./img/movie_menu.jpg" width = "200">
 <img src = "./img/movie_thisweek.jpg" width = "200">
