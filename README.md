@@ -15,7 +15,14 @@
 * Heroku -> deploy
 * 多人使用
 
-#### 使用環境
+## 使用環境
 * Python 3.6.9
 * Beautifulsoup4 4.10.0
 
+## 畫面演示
+<img src = "./img/main_menu.jpg" width = "200">
+<img src = "./img/movie_menu.jpg" width = "200">
+<img src = "./img/movie_thisweek.jpg" width = "200">
+<img src = "./img/movie_intheaters.jpg" width = "200">
+<img src = "./img/movie_leaderboard.jpg" width = "200">
+<img src = "./img/movie_comingsoon.jpg" width = "200">
