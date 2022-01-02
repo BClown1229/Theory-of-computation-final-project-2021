@@ -7,34 +7,11 @@ from linebot import LineBotApi, WebhookParser
 from linebot.exceptions import InvalidSignatureError
 from linebot.models import MessageEvent, TextMessage, TextSendMessage
 
-from fsm import TocMachine
+
 from utils import send_text_message
+from machine import create_machine
 
 load_dotenv()
-
-
-machine = TocMachine(
-    states=["user", "state1", "state2"],
-    transitions=[
-        {
-            "trigger": "advance",
-            "source": "user",
-            "dest": "state1",
-            "conditions": "is_going_to_state1",
-        },
-        {
-            "trigger": "advance",
-            "source": "user",
-            "dest": "state2",
-            "conditions": "is_going_to_state2",
-        },
-        {"trigger": "go_back", "source": ["state1", "state2"], "dest": "user"},
-    ],
-    initial="user",
-    auto_transitions=False,
-    show_conditions=True,
-)
-
 app = Flask(__name__, static_url_path="")
 
 
@@ -50,6 +27,9 @@ if channel_access_token is None:
 
 line_bot_api = LineBotApi(channel_access_token)
 parser = WebhookParser(channel_secret)
+
+# Unique FSM for each user
+machines = {}
 
 
 @app.route("/callback", methods=["POST"])
@@ -100,17 +80,25 @@ def webhook_handler():
             continue
         if not isinstance(event.message.text, str):
             continue
-        print(f"\nFSM STATE: {machine.state}")
+
+        # Create a machine for new user
+        if event.source.user_id not in machines:
+            machines[event.source.user_id] = create_machine()
+
+        print(f"\nFSM STATE: {machines[event.source.user_id].state}")
         print(f"REQUEST BODY: \n{body}")
-        response = machine.advance(event)
+
+        # Advance the FSM for each MessageEvent
+        response = machines[event.source.user_id].advance(event)
         if response == False:
-            send_text_message(event.reply_token, "Not Entering any State")
+            send_text_message(event, "選擇主選單開始操作～")
 
     return "OK"
 
 
 @app.route("/show-fsm", methods=["GET"])
 def show_fsm():
+    machine = create_machine()
     machine.get_graph().draw("fsm.png", prog="dot", format="png")
     return send_file("fsm.png", mimetype="image/png")
 
